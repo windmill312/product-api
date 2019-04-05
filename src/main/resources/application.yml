@@ -1,0 +1,27 @@
+grpc:
+  port: 8082
+
+logging:
+  path: logs
+  level: INFO
+  level.org.hibernate: INFO
+  level.com.sychev: DEBUG
+
+spring:
+  application:
+    name: product
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: "jdbc:postgresql://localhost:5432/supplies"
+    username: postgres
+    password: "Ujkjcjdfzgjxnf8"
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+        dialect: org.hibernate.dialect.PostgreSQLDialect
