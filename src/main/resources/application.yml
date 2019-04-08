@@ -12,16 +12,14 @@ spring:
     name: product
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: "jdbc:postgresql://localhost:5432/supplies"
-    username: postgres
-    password: "Ujkjcjdfzgjxnf8"
+    url: "jdbc:postgresql://db-products.ceg8zokcldpo.eu-west-1.rds.amazonaws.com:5432/db_products"
+    username: zdxblpqesjdyfj
+    password: "94sdf4sdf6sd35sdvd7fdg6d8hdf7s4d3f32dgdf6h7fh6fg7h5f4gh5g3dh7dfg"
 
 
   jpa:
-    hibernate:
-      ddl-auto: update
+    show-sql: true
     properties:
       hibernate:
         temp:
           use_jdbc_metadata_defaults: false
-        dialect: org.hibernate.dialect.PostgreSQLDialect
