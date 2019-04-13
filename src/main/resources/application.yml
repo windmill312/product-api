@@ -5,16 +5,16 @@ logging:
   path: logs
   level: INFO
   level.org.hibernate: INFO
-  level.com.sychev: DEBUG
+  level.com.github.windmill312: DEBUG
 
 spring:
   application:
     name: product
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: "jdbc:postgresql://db-products.ceg8zokcldpo.eu-west-1.rds.amazonaws.com:5432/db_products"
-    username: zdxblpqesjdyfj
-    password: "94sdf4sdf6sd35sdvd7fdg6d8hdf7s4d3f32dgdf6h7fh6fg7h5f4gh5g3dh7dfg"
+    url: jdbc:postgresql://localhost:5432/db_products
+    username: a.sychev
+    password: "Ujkjcjdfzgjxnf8"
 
 
   jpa:
