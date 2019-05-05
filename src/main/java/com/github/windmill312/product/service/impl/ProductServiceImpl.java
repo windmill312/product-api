@@ -9,6 +9,7 @@ import com.github.windmill312.product.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,10 +40,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductEntity> getProductsByCafe(UUID cafeUid) {
-        return productCafeRepository.findAllByCafeUid(cafeUid).stream()
+    public Page<ProductEntity> getProductsByCafe(UUID cafeUid, Pageable pageable) {
+        Page<ProductCafeEntity> productCafePage = productCafeRepository.findAllByCafeUid(cafeUid, pageable);
+        return new PageImpl<>(productCafePage.stream()
                 .map(ProductCafeEntity::getProduct)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()), pageable, productCafePage.getTotalElements());
     }
 
     @Override

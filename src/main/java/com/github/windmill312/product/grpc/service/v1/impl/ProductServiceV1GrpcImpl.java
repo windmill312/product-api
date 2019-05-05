@@ -11,7 +11,6 @@ import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 
-import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -61,9 +60,12 @@ public class ProductServiceV1GrpcImpl extends ProductServiceV1Grpc.ProductServic
             GGetProductsByCafeRequest request,
             StreamObserver<GGetProductsByCafeResponse> responseObserver) {
 
-        List<ProductEntity> products = productService.getProductsByCafe(ModelConverter.convert(request.getCafeUid()));
+        Page<ProductEntity> products = productService.getProductsByCafe(
+                ModelConverter.convert(request.getCafeUid()),
+                ModelConverter.convert(request.getPageable()));
 
         responseObserver.onNext(GGetProductsByCafeResponse.newBuilder()
+                .setPage(ModelConverter.convert(products))
                 .addAllProducts(products
                         .stream()
                         .map(ModelConverter::convert)

@@ -11,7 +11,7 @@ public interface ProductService {
 
     Page<ProductEntity> getAllProducts(Pageable pageable);
 
-    List<ProductEntity> getProductsByCafe(UUID cafeUid);
+    Page<ProductEntity> getProductsByCafe(UUID cafeUid, Pageable pageable);
 
     ProductEntity getProductByUid(UUID productUid);
 
