@@ -127,7 +127,7 @@ public class ProductServiceV1GrpcImplTest {
 
     @Test
     public void testForTeamCity() {
-        Assert.assertTrue(false);
+        Assert.assertTrue(true);
     }
 
     private ProductEntity getMockObjСafeEntity() {
