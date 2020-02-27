@@ -9,6 +9,7 @@ import com.github.windmill312.product.model.ProductGroup;
 import com.github.windmill312.product.model.entity.ProductEntity;
 import com.github.windmill312.product.service.ProductService;
 import io.grpc.stub.StreamObserver;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -122,6 +123,11 @@ public class ProductServiceV1GrpcImplTest {
         GAddProductResponse response = captor.getValue();
         assertEquals(response.getProductUid().getUuid(), PRODUCT_UID.toString());
 
+    }
+
+    @Test
+    public void testForTeamCity() {
+        Assert.assertTrue(false);
     }
 
     private ProductEntity getMockObjСafeEntity() {
